@@ -1,0 +1,20 @@
+.footer{
+  padding: 12px;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-color-5);
+
+  text-align: center;
+
+  a{
+    color: var(--base-color);
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  p.subtitle{
+    color: var(--text-color-light);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+}

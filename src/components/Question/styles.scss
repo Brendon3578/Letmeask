@@ -1,0 +1,133 @@
+.question {
+  position: relative;
+  background: var(--bg-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--shadow-015);
+  box-shadow: 0 0px 12px var(--shadow-01);
+  word-break: break-all;
+  padding: 24px;
+
+  & + .question {
+    margin-top: 8px;
+  }
+
+  &.highlighted {
+    position: relative;
+    background: var(--question-highlight-bg);
+    border-bottom: 2px solid var(--base-color);
+    box-shadow: 0 0 6px 1px var(--question-border-highlight);
+
+    footer .user-info span {
+      color: var(--text-color);
+    }
+  }
+
+  &.answered {
+    position: relative;
+    background: var(--question-answered-bg);
+    border-bottom: 2px solid var(--shadow-005);
+
+    &::after{
+      content:'respondida';
+      position: absolute;
+      color: var(--text-color-light);
+      font: 14px 'Poppins', sans-serif;
+      bottom: 8px;
+      right: 16px;
+      
+    }
+  }
+
+  p {
+    color: var(--text-color)
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 32px;
+        height: 32;
+        border-radius: 50%;
+        box-shadow: 0px 0px 3px var(--icon-color);
+      }
+      
+      span {
+        margin-left: 8px;
+        color: var(--text-color-light);
+        font-size: 14px;
+      }
+    }
+
+    .question-actions {
+      display: flex;
+      gap: 16px;
+    
+      .like-button{
+        display: flex;
+        align-items: flex-end;
+        gap: 4px;
+  
+        span{
+          transform: translateY(-8px);
+          -webkit-user-select: none; /* Safari */
+          -ms-user-select: none; /* IE 10 and IE 11 */
+          user-select: none; /* Standard syntax */
+        }
+  
+        &.liked, &.liked .global-icon {
+          color: var(--base-color);
+        }
+      }
+
+      .user-delete-button {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+    }    
+
+    button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      height: 100%;
+
+      &.delete-button:hover svg{
+        color: var(--red)
+      }
+      &.answer-button:hover svg{
+        color: var(--yellow)
+      }
+    }
+
+    .like-number {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      color: var(--base-color);
+
+      svg{
+        transform: translateY(1px);
+        font-size: 18px;
+        margin-left: 4px;
+      }
+    }
+  }
+  &:hover{
+    .user-delete-button {
+      opacity: 1 !important;
+    }
+  }
+}

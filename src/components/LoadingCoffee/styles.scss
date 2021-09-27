@@ -1,0 +1,58 @@
+#loading-animation{
+  margin: 0 auto;
+  width: 180px;
+  margin-top: 64px;
+  transform: translateX(16px);
+  .coffee-icon{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    width: 80px;
+    height: 80px;
+    margin: 16px 0;
+
+    color: var(--base-color);
+  
+    .coffee{
+      position: absolute;
+      font-size: 48px;
+      bottom: 0;
+      left: 50%;
+      color: var(--text-color)
+    }
+  
+    .chat, .chat-two{
+      position: absolute;
+      left: 80%;
+    }
+    .chat {
+      left: 35%;
+      transform: scaleX(-1);
+      font-size: 32px;
+      animation: chatAnimation 0.8s infinite ease-out;
+    }
+    .chat-two{
+      animation: chatAnimationTwo 0.8s infinite ease-out;
+    }
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--text-color-light)
+  }
+  font-weight: bold;
+}
+
+
+
+@keyframes chatAnimation{
+  0%, 100% { top: -5%; }
+  50% { top: 0%; }
+}
+
+@keyframes chatAnimationTwo{
+  0%, 100% { top: -15%; }
+  50% { top: -19%; }
+}

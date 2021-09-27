@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --base-color: #835afd;
+    --second-base-color: #c955f6;
+    
+    --text-color: #29292e;
+    --text-color-medium: #3b3b41;
+    --text-color-light: #737380;
+    --text-color-white: #fff;
+    --text-color-white-10: #f8f8f8;
+
+    --bg-color: #fefefe;
+    --bg-color-5: #f8f8f8;
+
+    --border-color: #e2e2e2;
+    --border-color-dark: #a8a8b3;
+    --border-base-color: #835afd;
+
+    --icon-color: #737380;
+
+    --tooltip-bg-color: rgba(41, 41, 46, 1);
+
+    --input-border-focus: rgba(131, 90, 253, 0.6);
+
+    --question-border-highlight: rgba(131, 90, 253, 0.8);
+    --question-highlight-bg: #f3f0ff;
+    --question-answered-bg: #e2e2e2;
+
+    --error-line: #fff;
+
+    --text-button-gray: #737380;
+    --bg-button-gray: #d8dcdd;
+    --border-button-gray: #a8a8b3;
+
+    --shadow-05: rgba(41, 41, 46, 0.5);
+    --shadow-05-2: rgba(0, 0, 0, 0.5);
+    --shadow-03: rgba(41, 41, 46, 0.3);
+    --shadow-015: rgba(0, 0, 0, 0.15);
+    --shadow-01: rgba(0, 0, 0, 0.1);
+    --shadow-005: rgba(0, 0, 0, 0.05);
+
+    --red-google: #ea4335;
+    --red: #e74040;
+
+    --yellow: #e7c640;
+
+    --black: #29292e;
+}
+
+body {
+    background-color: var(--bg-color-5);
+    color: var(--text-color);
+}
+
+body, input, button, textarea {
+    font: 400  16px 'Roboto', sans-serif;
+}
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.link-button{
+    background: transparent;
+    border: 0;
+    color: var(--base-color);
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover{
+        filter: brightness(0.9);
+    }
+  }
+
+.global-icon{
+    color: var(--icon-color);
+    font-size: 32px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover{
+        color: var(--base-color);
+        filter: brightness(0.8);
+    }
+    &.active {
+        color: var(--base-color);
+    }
+    
+    &.no-pseudo-class{
+        &:hover{
+            color: inherit !important;
+            filter: none !important;
+        }
+        &:active {
+            color: inherit !important;
+        }
+    }
+}
+.global-icon2{
+    font-size: 32px;
+    padding: 4px;
+}
+
+
+.global-icon, .global-icon2{
+    &.size-28{ font-size: 28px}
+    &.size-30{ font-size: 30px}
+}

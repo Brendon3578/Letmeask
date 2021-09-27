@@ -1,0 +1,53 @@
+// reset css styles input
+.title input {
+  outline: none;
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    display: flex;
+
+    &:hover svg{
+      color: var(--base-color);
+    }
+  }
+
+  input {
+    display: block;
+    max-width: 620px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+
+    &.editable{
+      padding: 0px 8px;
+      padding-right: 16px;
+      border-radius: 4px;
+  
+      &:hover, &:focus{
+        background-color: var(--shadow-01);
+      }
+    }
+  }
+  &:focus-within svg{
+    color: var(--base-color);
+  }
+
+  svg {
+    cursor: default;
+    margin-left: 8px;
+    transition: 0.6s ease-out;
+    order: -1;
+    &:hover{
+      filter: initial;
+    }
+  }
+}

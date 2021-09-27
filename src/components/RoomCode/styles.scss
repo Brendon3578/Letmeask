@@ -1,0 +1,88 @@
+.room-code {
+  position: relative;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--bg-color-5);
+  border: 1px solid var(--base-color);
+  cursor: pointer;
+  
+  display: flex;
+  transition: 0.2s;
+
+  &:hover {
+    filter:brightness(0.93);
+    box-shadow: 1px 1px 6px var(--shadow-05);
+  }
+
+  .global-icon:hover{
+    filter: none;
+  }
+
+  div {
+    background: var(--base-color);
+    padding: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 5px 0px 0px 5px;
+
+    .global-icon {
+      color: var(--bg-color-5);
+    }
+  }
+
+  span {
+    content: '';    
+    display: block;
+    align-self: center;
+    flex: 1;
+    padding: 0 16px 0 12px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @keyframes copyButtonAnimation{
+    0%{ clip-path: inset(0% 100% 0% 0%); }
+    30%{ clip-path: inset(0% 0% 0% 0%); }
+    70%{ clip-path: inset(0% 0% 0% 0%); }
+    100%{ clip-path: inset(0% 100% 0% 0%); }
+  }
+
+  &::after{
+    content:'Copiado 😉';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: calc(100% - 32px);
+    height: calc(100% + 2px);
+    border-radius: 8px;
+    background: var(--base-color);
+    color: var(--bg-color-5);
+    clip-path: inset(0% 100% 0% 0%);
+  }
+  &.animation::after{
+    animation: copyButtonAnimation 2.8s ease-in-out;
+  }
+}
+
+// responsive code button
+@media (max-width: 720px) {
+  .room-code{
+    padding: 0px;
+    border: none;
+    
+    span{
+      display: none;
+    }
+
+    div {
+      padding: 0px 8px;
+      border-radius: 8px;
+    }
+  }
+}

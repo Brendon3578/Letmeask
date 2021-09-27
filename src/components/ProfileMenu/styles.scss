@@ -1,0 +1,123 @@
+.settings-menu {
+  .userButton {
+    position: relative;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      box-shadow: 0px 0px 2px var(--icon-color);
+    }
+
+    &:hover{
+      box-shadow: 0px 0px 2px 4px var(--shadow-01);
+    }
+    &.open {
+      box-shadow: 0px 0px 2px 4px var(--shadow-01);
+    }
+  
+  }
+
+  .user-tooltip{
+    text-align: left;
+    padding: 5px 10px;
+    .separator{
+      margin: 4px 0px;
+      border-bottom: 1px solid #29292e;
+    }
+    p:not(:first-child) {
+      color: #e2e2e2;
+      line-height: 16px;
+    }
+    .user-role{
+      font-weight: 500;
+    }
+  }
+}
+
+// Modal styles
+// user-modal class to modify content style
+.user-modal-content {
+  position: absolute !important;
+  top: 86px;
+  right: 32px;
+  margin: auto;
+  background: var(--bg-color);
+  width: 300px;
+  padding: 16px 24px;
+
+  border: 1px solid var(--border-color-dark);
+  box-shadow: 0 0px 10px var(--shadow-015);
+  border-radius: 8px;
+}
+.user-modal-overlay{
+  position: static !important;
+}
+
+.settings-modal {
+  text-align: center;
+  color: var(--text-color);
+
+  header {
+    img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      box-shadow: 0px 0px 3px var(--icon-color);
+    }
+    p:first-of-type {
+      font-weight: 500;
+      line-height: 24px;
+    }
+    p:last-of-type {
+      font-size: 14px;
+      color: var(--text-color-medium);
+      margin-bottom: 16px;
+    }
+  }
+  main {
+    .user-role{
+      margin: 16px 0;
+      span{
+        background: var(--base-color);
+        color: var(--text-color-white-10);
+        padding: 4px 8px;
+        margin: 4px;
+        border-radius: 4px;
+      }
+    }
+    .user-action{
+      line-height: 20px;
+      padding: 8px 0;
+      span{
+      text-decoration: underline;
+      }
+
+    }
+  }
+  .link-button{
+    display: block;
+    margin: 12px 0;
+  }
+  footer {
+    padding: 16px 0;
+    button{
+      height: auto;
+      padding: 8px 16px;
+      margin: 0 auto;
+      gap: 8px;
+    }
+  }
+  hr {
+    background: var(--border-color);
+    height: 1px;
+    border: none;
+  }
+}
+  
