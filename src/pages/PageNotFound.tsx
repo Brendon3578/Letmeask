@@ -1,11 +1,15 @@
+// react imports
 import { useHistory } from 'react-router';
 
+// components
+import { Button } from '../components/Button';
+import { Head } from '../components/Head';
+
+// image files
 import illustrationImg from '../assets/images/illustration.svg';
 
-import { Button } from '../components/Button';
-
+// styles and icons import
 import { FiCornerUpLeft } from 'react-icons/fi'
-
 import '../styles/auth.scss'
 import '../styles/error404.scss'
 
@@ -19,6 +23,7 @@ export function PageNotFound({alternateMessage = 'página', messageComplete}:pag
 
   return (
     <div id="page-error">
+      <Head Title="Error 404"/>
       <main>
         <div className="container">
           <strong>404</strong>

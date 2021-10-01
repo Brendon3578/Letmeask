@@ -1,4 +1,5 @@
 import ReactTooltip from "react-tooltip";
+
 import './styles.scss'
 
 type TooltipProps = {

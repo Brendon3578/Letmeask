@@ -1,5 +1,6 @@
-import { Popup } from 'reactjs-popup';
 import { ReactElement, ReactNode } from 'react';
+import { Popup } from 'reactjs-popup';
+
 import { Button } from '../Button';
 
 import './styles.scss'

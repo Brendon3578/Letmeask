@@ -1,29 +1,34 @@
+// react imports
 import { useState, FormEvent } from 'react';
 import { useParams } from 'react-router';
 
+// services
 import { database } from '../services/firebase';
 
-import emptyQuestionsImg from '../assets/images/empty-questions.svg'
-import { FiThumbsUp, FiXCircle } from 'react-icons/fi'
-
-import { pushToast } from './../components/ToastComponent';
-import { Tooltip } from '../components/Tooltip';
-
-import { Button } from '../components/Button';
-import { Question } from './../components/Question';
-import { Header } from './../components/Header';
-import { LoadingCoffee } from '../components/LoadingCoffee';
-import { Modal } from '../components/Modal';
-
+// hooks
 import { useAuth } from './../hooks/useAuth';
 import { useRoom } from './../hooks/useRoom';
 import { useLoading } from './../hooks/useLoading';
 
+// pages
 import { PageNotFound } from './PageNotFound';
 
-
-import '../styles/room.scss'
+// components
 import { Head } from '../components/Head';
+import { Header } from './../components/Header';
+import { Button } from '../components/Button';
+import { Question } from './../components/Question';
+import { Modal } from '../components/Modal';
+import { Tooltip } from '../components/Tooltip';
+import { pushToast } from './../components/ToastComponent';
+import { LoadingCoffee } from '../components/LoadingCoffee';
+
+// image files
+import emptyQuestionsImg from '../assets/images/empty-questions.svg'
+
+// styles and icons import
+import { FiThumbsUp, FiXCircle } from 'react-icons/fi'
+import '../styles/room.scss'
 
 type RoomParams = {
   id: string;
@@ -48,9 +53,7 @@ export function Room() {
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault()
-    if (newQuestion.trim() === ''){
-      return;
-    }
+    if (newQuestion.trim() === ''){ return; }
 
     if (!user){ pushToast('Usuário não logado!', 'error'); return; }
     const question = {

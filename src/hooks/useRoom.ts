@@ -47,7 +47,6 @@ export function useRoom(roomId: string) {
   useEffect(() => {
     const roomRef = database().ref(`rooms/${roomId}`);
 
-
     // verify if User is Admin
     roomRef.child('authorId').get().then(admin => {
       if (admin.val() === user?.id){

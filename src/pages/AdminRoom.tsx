@@ -1,30 +1,36 @@
+// react imports
 import { useParams, useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
+// services
 import { database } from '../services/firebase';
 
-import { FiStar, FiMessageSquare, FiTrash, FiThumbsUp, FiCornerUpLeft } from 'react-icons/fi';
-
+// hooks
 import { useAuth } from './../hooks/useAuth';
 import { useRoom } from './../hooks/useRoom';
 import { useLoading } from '../hooks/useLoading';
 
-import { Header } from './../components/Header/index';
-import { Question } from './../components/Question';
-import { Footer } from './../components/Footer';
-import { Tooltip } from './../components/Tooltip';
-import { RoomTitle } from './../components/RoomTitle';
-import { Modal } from './../components/Modal';
-import { LoadingCoffee } from './../components/LoadingCoffee';
-import { Head } from '../components/Head';
-
+// pages
 import { PageNotFound } from './PageNotFound';
 
+// components
+import { Head } from '../components/Head';
+import { Header } from './../components/Header';
+import { RoomTitle } from './../components/RoomTitle';
+import { Tooltip } from './../components/Tooltip';
+import { Modal } from './../components/Modal';
+import { Question } from './../components/Question';
+import { Footer } from './../components/Footer';
+import { LoadingCoffee } from './../components/LoadingCoffee';
+
+// image files
 import userNotAdminImg from '../assets/images/user-not-admin.svg'
 import emptyQuestionsImg from '../assets/images/empty-questions.svg';
 import questionAnsweredExampleImg from '../assets/images/question-answered-example.png';
 import questionHighlightExampleImg from '../assets/images/question-highlight-example.png';
 
+// styles and icons import
+import { FiStar, FiMessageSquare, FiTrash, FiThumbsUp, FiCornerUpLeft } from 'react-icons/fi';
 import '../styles/room.scss'
 
 type RoomParams = {

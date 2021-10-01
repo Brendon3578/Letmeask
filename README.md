@@ -50,7 +50,7 @@ Utilitários
     $ yarn start
 
 ```
-Lembrando que será necessário criar uma conta no [Firebase](https://firebase.google.com/) e um projeto para disponibilizar um Realtime Database e fazer todas as configurações. Veja como configurar o seu Firebase detalhadamente [clicando aqui](https://github.com/Brendon3578/Letmeask/tree/main/.github/firebase). 
+Lembrando que será necessário criar uma conta no [Firebase](https://firebase.google.com/) e um projeto para disponibilizar um Realtime Database e fazer todas as configurações. Veja como configurar o seu Firebase detalhadamente [clicando aqui](https://github.com/Brendon3578/Letmeask/tree/master/.github/firebase). 
 
 ## 💻 Projeto
 

@@ -1,22 +1,28 @@
+// react imports
 import { Link } from 'react-router-dom';
 
+// services
 import { database } from '../services/firebase';
 
+// hooks
 import { useAuth } from './../hooks/useAuth';
 import { useUserRooms } from './../hooks/useUserRooms';
 import { useLoading } from '../hooks/useLoading';
 
+// components
+import { Head } from '../components/Head';
 import { Header } from './../components/Header';
 import { Button } from './../components/Button';
 import { Modal } from './../components/Modal';
+import { pushToast } from './../components/ToastComponent';
 import { Footer } from '../components/Footer';
 import { LoadingCoffee } from './../components/LoadingCoffee';
-import { pushToast } from './../components/ToastComponent';
-import { Head } from '../components/Head';
 
-import emptyRooms from '../assets/images/empty-rooms-white.svg'
+// image files
+import emptyRoomsImg from '../assets/images/empty-rooms-white.svg'
+
+// styles and icons import
 import { FiExternalLink, FiLink, FiPlusCircle, FiXCircle } from 'react-icons/fi';
-
 import '../styles/user-page.scss'
 
 export function UserPage () {
@@ -29,7 +35,7 @@ export function UserPage () {
   return (
     <div id="user-page">
       <Header>
-        <Head />
+        <Head Title="Usuário"/>
 
         <Link to="/rooms/new" className="button" title="Criar uma nova sala">
           <FiPlusCircle className="global-icon no-pseudo-class" color={'white'} />
@@ -56,7 +62,7 @@ export function UserPage () {
           <ul className="room-list">
             {rooms.length ===  0 && 
               <div className="empty-rooms">
-                <img src={emptyRooms} alt="Não há nenhuma sala criada por você" />
+                <img src={emptyRoomsImg} alt="Não há nenhuma sala criada por você" />
                 <div className="text">
                   <h2>Você não criou nenhuma <span>sala</span> ainda...</h2>
                   <p>Que tal criar a sua primeira sala e começar a responder perguntas?</p>

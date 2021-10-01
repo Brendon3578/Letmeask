@@ -1,11 +1,13 @@
-import { useDebouncedCallback } from 'use-debounce';
+// services
+import { database } from '../../services/firebase';
 
-import { FiEdit } from 'react-icons/fi';
+// hooks
+import { useDebouncedCallback } from 'use-debounce';
 import { useRoom } from './../../hooks/useRoom';
 
+// styles and icons import
+import { FiEdit } from 'react-icons/fi';
 import './styles.scss'
-
-import { database } from '../../services/firebase';
 
 type RoomTitleProps = {
   roomId: string;

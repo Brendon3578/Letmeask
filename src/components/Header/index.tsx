@@ -1,18 +1,22 @@
+// react imports
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
+// hooks
 import { useAuth } from './../../hooks/useAuth';
 
-import { RoomCode } from './../RoomCode';
-import { SettingsMenu } from '../ProfileMenu';
-import { Button } from './../Button';
-import { Modal } from './../Modal';
+// components
 import { MenuHeader } from '../MenuHeader';
+import { SettingsMenu } from '../ProfileMenu';
+import { RoomCode } from './../RoomCode';
+import { Modal } from './../Modal';
+import { Button } from './../Button';
 
+// image files
 import logoImg from '../../assets/images/logo.svg';
 
+// styles and icons import
 import { FiXCircle } from 'react-icons/fi';
-
 import './styles.scss'
 
 type HeaderProps = {

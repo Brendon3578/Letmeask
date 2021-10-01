@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
+import cx from 'classnames';
 
 import './styles.scss'
 
@@ -15,7 +16,11 @@ export function Button({
   {
   return(
     <button
-      className={`button ${isOutlined ? 'outlined' : ''} ${isGray ? 'gray' : ''}`}
+      className={cx(
+        'button',
+        { outlined: isOutlined },
+        { gray: isGray }
+      )}
       {...props}
     />
   )

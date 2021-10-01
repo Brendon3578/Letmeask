@@ -1,21 +1,26 @@
+// react imports
 import { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
-import { useAuth } from './../hooks/useAuth';
+// services
 import { database } from '../services/firebase';
 
+// hooks
+import { useAuth } from './../hooks/useAuth';
+
+// components
+import { Head } from '../components/Head';
+import { Button } from '../components/Button';
+
+// image files
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
+// styles and icons import
 import { GrGoogle } from 'react-icons/gr'
 import { FiLogIn } from 'react-icons/fi'
-
-import { Button } from '../components/Button';
-import { Head } from '../components/Head';
-
-import toast from 'react-hot-toast';
-
 import '../styles/auth.scss'
 
 export function Home() {

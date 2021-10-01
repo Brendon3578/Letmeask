@@ -1,16 +1,18 @@
+// react imports
 import { useParams, useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-
 import ReactTooltip from 'react-tooltip';
 import Popup from 'reactjs-popup'
 
-import { FiLogOut } from 'react-icons/fi'
-
+// hooks
 import { useAuth } from '../../hooks/useAuth'
 
+// components
 import { pushToast } from '../ToastComponent';
 import { Button } from '../Button';
 
+// styles and icons import
+import { FiLogOut } from 'react-icons/fi'
 import './styles.scss'
 
 type settingsProps = {
