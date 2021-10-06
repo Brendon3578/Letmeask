@@ -40,7 +40,7 @@ export function Modal({
   
   return (
 
-    <Popup trigger={modalButton} modal
+    <Popup modal trigger={modalButton}
       className='question-modal'
     >
       {(close: () => void) => (

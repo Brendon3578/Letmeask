@@ -32,6 +32,9 @@ export function NewRoom() {
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
+      settings: {
+        canSendQuestion: true,
+      }
     })
 
     await database().ref(`userRooms/${user?.id}/${firebaseRoom.key}`).set({

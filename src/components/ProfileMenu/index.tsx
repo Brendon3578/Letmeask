@@ -23,7 +23,7 @@ type settingsProps = {
 }
 
 
-export function SettingsMenu({
+export function ProfileMenu({
   userAvatarUrl,
   userEmail,
   userName,

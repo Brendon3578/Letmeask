@@ -39,7 +39,7 @@ export function Room() {
 
   const params = useParams<RoomParams>();
   const roomId = params.id;
-  const { questions, title, Admin, roomNotFound } = useRoom(roomId)
+  const { questions, title, Admin, roomNotFound, settings } = useRoom(roomId)
 
   const [newQuestion, setNewQuestion] = useState('');
 
@@ -106,11 +106,15 @@ export function Room() {
 
           <form onSubmit={handleSendQuestion}>
             <textarea
-              placeholder="O que você quer perguntar?"
               onChange={event => setNewQuestion(event.target.value)}
               value={newQuestion}
               minLength={16}
               maxLength={400}
+              placeholder={
+                `${!settings.canSendQuestion ? 'O Admnistrador desativou o envio de novas questões.'
+                : ' O que você quer perguntar?'}`
+              }
+              disabled={!settings.canSendQuestion}
             />
             <div className="form-footer">
               { user ? (
@@ -124,7 +128,7 @@ export function Room() {
                   <button className='link-button' onClick={handleLogin}>faça seu login</button>.
                 </span>
               ) }
-              <Button type="submit" disabled={!user}>Enviar pergunta</Button>   
+              <Button type="submit" disabled={!user || settings.canSendQuestion === false}>Enviar pergunta</Button>   
             </div>
           </form>
 

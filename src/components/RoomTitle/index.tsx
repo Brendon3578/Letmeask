@@ -42,7 +42,7 @@ export function RoomTitle({ roomId, isAdmin, userId }: RoomTitleProps) {
         saveTitleRoom(title)
       }
       
-    }, 500
+    }, 3000
   )
 
 

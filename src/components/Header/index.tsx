@@ -6,27 +6,24 @@ import { Link } from 'react-router-dom';
 import { useAuth } from './../../hooks/useAuth';
 
 // components
-import { MenuHeader } from '../MenuHeader';
-import { SettingsMenu } from '../ProfileMenu';
+// import { MenuHeader } from '../MenuHeader';
+import { ProfileMenu } from '../ProfileMenu';
 import { RoomCode } from './../RoomCode';
-import { Modal } from './../Modal';
-import { Button } from './../Button';
+import { RoomSettings } from './../RoomSettings';
 
 // image files
 import logoImg from '../../assets/images/logo.svg';
 
 // styles and icons import
-import { FiXCircle } from 'react-icons/fi';
 import './styles.scss'
 
 type HeaderProps = {
   roomId?: string;
   isAdmin?: boolean;
   children?: ReactNode;
-  endRoomFunction?: () => Promise<void>;
 }
 
-export function Header ({roomId, isAdmin , children, endRoomFunction}: HeaderProps) {
+export function Header ({roomId, isAdmin , children,}: HeaderProps) {
   const { user } = useAuth()
 
   return (
@@ -40,25 +37,14 @@ export function Header ({roomId, isAdmin , children, endRoomFunction}: HeaderPro
           <div>
           <RoomCode code={roomId} />
 
-          {(isAdmin && endRoomFunction) &&
-            <MenuHeader>
-              <Modal modalTitle="Encerrar sala" modalMessage="encerrar esta sala"
-                modalColor={'var(--red)'}
-                modalIcon={<FiXCircle/>}
-                roomId={roomId}
-                modalActionFunction={endRoomFunction}
-              >
-                <Button
-                  isOutlined
-                >
-                  Encerrar sala
-                </Button>
-              </Modal>
-            </MenuHeader>
+          {(isAdmin) &&
+          // Menu de Configurações da Sala
+            <RoomSettings roomId={roomId} />
           }
 
-          { user && 
-            <SettingsMenu userAvatarUrl={user?.avatar}
+          { user &&
+          // Menu de Usuário
+            <ProfileMenu userAvatarUrl={user?.avatar}
               userName={user?.name} 
               userEmail={user?.email}
               userIsAdmin={isAdmin}

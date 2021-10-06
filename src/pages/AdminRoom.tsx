@@ -1,5 +1,5 @@
 // react imports
-import { useParams, useHistory } from 'react-router';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
 // services
@@ -39,8 +39,6 @@ type RoomParams = {
 
 export function AdminRoom() {
   const { user } = useAuth()
-  
-  const history = useHistory()
 
   const params = useParams<RoomParams>();
   const roomId = params.id;
@@ -48,14 +46,6 @@ export function AdminRoom() {
   const { questions, Admin, roomNotFound, title } = useRoom(roomId)
 
   const { loading } = useLoading()
-
-  async function handleEndRoom() {
-    if (Admin){
-      history.push('/');
-      await database().ref(`rooms/${roomId}`).remove()
-      await database().ref(`userRooms/${user?.id}/${roomId}`).remove()
-    }
-  }
   
   async function handleDeleteQuestion(questionId: string){
     if (Admin){
@@ -79,8 +69,6 @@ export function AdminRoom() {
     }
   }
 
-  
-
 
   return (
     <>
@@ -88,14 +76,13 @@ export function AdminRoom() {
       <div id="page-room">
         <Head Title={`${title.length > 32 ? (title.substring(0, 32) + '...') : title}`} />
 
-        <Header isAdmin={Admin} roomId={roomId} endRoomFunction={handleEndRoom} />
+        <Header isAdmin={Admin} roomId={roomId} />
         <main>
           {loading ? (
             <LoadingCoffee />
           ) : (
             <>
-
-          {Admin ? (
+              {Admin ? (
           <>
           <div className="room-title">
             <RoomTitle roomId={roomId} isAdmin={Admin} userId={user?.id} />

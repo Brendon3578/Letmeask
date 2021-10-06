@@ -32,12 +32,17 @@ type QuestionType = {
   likeId: string | undefined;
 }
 
+type RoomSettingsType = {
+  canSendQuestion: boolean;
+}
+
 export function useRoom(roomId: string) {
 
   const { user } = useAuth();
 
   const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState('');
+  const [settings, setSettings] = useState<RoomSettingsType>({canSendQuestion: true});
 
   // verify if room not found
   const [roomNotFound, setRoomNotFound] = useState(false);
@@ -77,6 +82,7 @@ export function useRoom(roomId: string) {
           }
         })
         setTitle(databaseRoom.title);
+        setSettings(databaseRoom.settings);
         setQuestions(parsedQuestions);
       }
       
@@ -89,5 +95,5 @@ export function useRoom(roomId: string) {
   }, [ roomId, user?.id ]);
 
 
-  return { questions, setTitle, title, Admin, roomNotFound }
+  return { questions, title, setTitle , settings, setSettings, Admin, roomNotFound }
 }
