@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { AuthContextProvider } from './contexts/AuthContext'
 
 import { Home } from './pages/Home';
+import { Auth } from './pages/Auth';
 import { NewRoom } from './pages/NewRoom';
 import { Room } from './pages/Room';
 import { AdminRoom } from './pages/AdminRoom';
@@ -21,6 +22,7 @@ function App() {
           <HelmetProvider>
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/auth" exact component={Auth} />
               <ProtectedRoute authenticationPath='/' path="/rooms/new" component={NewRoom} />
               <ProtectedRoute authenticationPath='/' path="/user" component={UserPage} />
               <Route path="/rooms/:id" component={Room} />
