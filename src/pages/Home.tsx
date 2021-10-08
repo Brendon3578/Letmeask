@@ -31,7 +31,7 @@ export function Home() {
             </h1>
             <p>
               Respondas as perguntas de seus convidados com respostas em realtime.
-              Favorite as melhores perguntas e acelere a comunicação com os seus convidados.
+              Favorite as melhores perguntas e dê um boost na comunicação com os seus convidados.
             </p>
 
             <Link to='/auth'>
@@ -43,9 +43,15 @@ export function Home() {
           </div>
           <div className="image-side">
             <img src={homeImage} alt="Ilustração do Design Mobile do Letmeask" />
+
+            <div className="bg-circle middle" />
+            <div className="bg-circle bottom-middle" />
           </div>
         </section>
       </main>
+
+      <div className="bg-circle top" />
+      <div className="bg-circle bottom" />
     </div>
   )
 }

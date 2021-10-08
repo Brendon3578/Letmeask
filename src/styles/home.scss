@@ -54,12 +54,51 @@
 
     .image-side{
       height: 100%;
+      position: relative;
       
       img{
         width: 380px;
         border-radius: 32px;
+        background: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur( 10px );
+        backdrop-filter: blur( 10px );
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
+      .bg-circle.middle{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 50px;
+        left: -60px;
+      }
+      .bg-circle.bottom-middle{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: -50px;
+        bottom: -10px;
+      }
+    }
+  }
+
+  .bg-circle{
+    position: fixed;
+    clip-path: circle();
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(180deg, rgba(72,91,255,1) 0%, #c955f6 100%);
+    opacity: 0.25;
+    z-index: -1;
+    
+    &.top{
+      top: 0;
+      right: -200px;
+    }
+    &.bottom{
+      width: 250px;
+      height: 250px;
+      bottom: -150px;
+      left: 0;
     }
   }
 }
@@ -70,6 +109,7 @@
       grid-template-columns: 1fr;
       justify-items: center;
       padding-top: 32px;
+      padding-bottom: 32px;
     }
   }
 }
