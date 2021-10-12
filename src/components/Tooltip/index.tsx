@@ -4,11 +4,10 @@ import './styles.scss'
 
 type TooltipProps = {
   message?: string;
-  message2?: string;
   idTooltip: string;
 }
 
-export function Tooltip({message, message2, idTooltip}:TooltipProps) {
+export function Tooltip({message, idTooltip}:TooltipProps) {
   return(
     <ReactTooltip
       id={idTooltip}
@@ -22,8 +21,6 @@ export function Tooltip({message, message2, idTooltip}:TooltipProps) {
       getContent={() =>
         <>
           {message}
-          <br />
-          {message2}
         </>
       }
     />

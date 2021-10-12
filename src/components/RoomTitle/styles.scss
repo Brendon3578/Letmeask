@@ -15,26 +15,36 @@
 
   h1 {
     display: flex;
+    align-items: center;
 
     &:hover svg{
       color: var(--base-color);
     }
   }
 
-  input {
+  label{
+    display: flex;
+  }
+
+  input.editable {
     display: block;
     max-width: 620px;
     font-weight: bold;
+    height: 100%;
     text-overflow: ellipsis;
-
-    &.editable{
-      padding: 0px 8px;
-      padding-right: 16px;
-      border-radius: 4px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0px 8px;
+    margin-left: 4px;
+    transition: 0.15s background-color ease-in-out,
+                0.15s border ease-in-out;
   
-      &:hover, &:focus{
-        background-color: var(--shadow-01);
-      }
+    &:hover{
+      background-color: var(--shadow-01);
+    }
+    &:focus{
+      background-color: var(--shadow-01);
+      border: 1px solid var(--base-color);
     }
   }
   &:focus-within svg{

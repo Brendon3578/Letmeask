@@ -51,8 +51,11 @@ export function RoomTitle({ roomId, isAdmin, userId }: RoomTitleProps) {
       { !isAdmin ?
       <h1>{title}</h1>
       : <h1>
-          <FiEdit className="global-icon" />
+          <label htmlFor="title">
+            <FiEdit className="global-icon" />
+          </label>
           <input type="text"
+            id="title"
             className="editable"
             value={title}
             maxLength={64}

@@ -66,6 +66,40 @@ a{
     text-decoration: none;
 }
 
+textarea {
+  width: 100%;
+  border: 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 12px var(--shadow-01);
+  resize: none;
+  min-height: 130px;
+  transition: 0.15s ease-in-out;
+  
+  &:focus{
+    outline: 0;
+    border: 1px solid var(--border-base-color);
+    box-shadow: 0px 0px 1px 3px var(--input-border-focus);
+  }
+}
+
+input {
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 16px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color-dark);
+  transition: 0.15s ease-in-out;
+
+  &:focus{
+    outline: 0;
+    border: 1px solid var(--base-color);
+    box-shadow: 0px 0px 1px 2px var(--input-border-focus);
+  }
+}
+
 .link-button{
     background: transparent;
     border: 0;

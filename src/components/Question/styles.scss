@@ -25,8 +25,6 @@
 
   &.answered {
     position: relative;
-    background: var(--question-answered-bg);
-    border-bottom: 2px solid var(--shadow-005);
 
     &::after{
       content:'respondida';
@@ -41,6 +39,19 @@
 
   p {
     color: var(--text-color)
+  }
+
+  span.letter-emphasis{
+    color: var(--base-color);
+    font-style: normal;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 4px;
+  }
+
+  p.question-answer{
+    font-style: oblique;
+    color: var(--text-color-medium)
   }
 
   footer {
@@ -96,6 +107,33 @@
         height: auto;
         opacity: 0;
         transition: opacity 0.3s;
+      }
+
+      .highlight-button{
+        position: relative;
+        &::before{
+          content: '';
+          display: none;
+          position: absolute;
+          width: 2px;
+          height: 30px;
+          top: 0;
+          left: 12px;
+          background: var(--icon-color);
+          border-radius: 40%;
+          border: 2px solid var(--question-highlight-bg);
+          transform: rotate(45deg);
+          z-index: 0;
+        }
+        &:hover .global-icon{
+          filter: none;
+          transition: none;
+        }
+        &.unstar{
+          &::before{
+            display: block;
+          }
+        }
       }
     }    
 

@@ -1,0 +1,17 @@
+.modal-send-question-content{
+  textarea{
+    border: 1px solid var(--base-color);
+    align-self: stretch;
+  }
+
+  p{
+    align-self: flex-start;
+    margin-bottom: 4px;
+  }
+  .emphasis{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--base-color);
+  }
+}

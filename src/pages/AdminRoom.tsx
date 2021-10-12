@@ -19,6 +19,7 @@ import { Header } from './../components/Header';
 import { RoomTitle } from './../components/RoomTitle';
 import { Tooltip } from './../components/Tooltip';
 import { Modal } from './../components/Modal';
+import { ModalSendQuestion } from './../components/ModalSendQuestion';
 import { Question } from './../components/Question';
 import { Footer } from './../components/Footer';
 import { LoadingCoffee } from './../components/LoadingCoffee';
@@ -26,11 +27,9 @@ import { LoadingCoffee } from './../components/LoadingCoffee';
 // image files
 import userNotAdminImg from '../assets/images/user-not-admin.svg'
 import emptyQuestionsImg from '../assets/images/empty-questions.svg';
-import questionAnsweredExampleImg from '../assets/images/question-answered-example.png';
-import questionHighlightExampleImg from '../assets/images/question-highlight-example.png';
 
 // styles and icons import
-import { FiStar, FiMessageSquare, FiTrash, FiThumbsUp, FiCornerUpLeft } from 'react-icons/fi';
+import { FiStar, FiMessageCircle, FiTrash, FiThumbsUp, FiCornerUpLeft } from 'react-icons/fi';
 import '../styles/room.scss'
 
 type RoomParams = {
@@ -53,18 +52,18 @@ export function AdminRoom() {
     }
   }
 
-  async function handleCheckQuestionAsAnswered(questionId: string){
+  async function handleSendAnswer(questionId: string, answer: string | undefined){
     if (Admin){
       await database().ref(`rooms/${roomId}/questions/${questionId}`).update({
-        isAnswered: true,
+        answer: answer,
       })
     }
   }
 
-  async function handleHighlightQuestion(questionId: string){
+  async function handleHighlightQuestion(questionId: string, isHighlight: boolean){
     if (Admin){
       await database().ref(`rooms/${roomId}/questions/${questionId}`).update({
-        isHighlighted: true,
+        isHighlighted: !isHighlight,
       })
     }
   }
@@ -83,7 +82,7 @@ export function AdminRoom() {
           ) : (
             <>
               {Admin ? (
-          <>
+              <>
           <div className="room-title">
             <RoomTitle roomId={roomId} isAdmin={Admin} userId={user?.id} />
             { questions.length > 0 && <span>{questions.length} pergunta{ questions.length !== 1 && 's'}</span>}
@@ -104,58 +103,43 @@ export function AdminRoom() {
                 key={question.id}
                 content={question.content}
                 author={question.author}
-                isAnswered={question.isAnswered}
+                answer={question.answer}
                 isHighlighted={question.isHighlighted}
               >
-                {!question.isAnswered && (
-                  <>
-                    {question.likeCount > 0 && 
-                      <span className="like-number">
-                        {question.likeCount}
-                        <FiThumbsUp />
-                      </span>
-                    }
-                    {!question.isHighlighted && (
-                      <>
+                {question.likeCount > 0 && 
+                  <span className="like-number">
+                    {question.likeCount}
+                    <FiThumbsUp />
+                  </span>
+                }
+                    
+                <button
+                  type="button"
+                  className={`highlight-button ${question.isHighlighted? 'unstar' : ''}`}
+                  data-tip
+                  data-for={`highlightTip-id-${question.id}`}
+                  onClick={() => handleHighlightQuestion(question.id, question.isHighlighted)}
+                >
+                  <FiStar className='global-icon' />
+                </button>
+                <Tooltip message="Destacar pergunta" idTooltip={`highlightTip-id-${question.id}`} />
 
-                        <Modal modalTitle="Destacar pergunta" modalMessage="destacar esta pergunta"
-                          modalIcon={<FiStar/>}
-                          modalActionFunction={handleHighlightQuestion}
-                          questionId={question.id}
-                          modalImage={questionHighlightExampleImg}
-                        >
-                          <button
-                            type="button"
-                            className="highlight-button"
-                            data-tip
-                            data-for={`highlightTip-id-${question.id}`}
-                          >
-                            <FiStar className="global-icon" />
-                          </button>
-                        </Modal>
-                        <Tooltip message="Destacar pergunta" idTooltip={`highlightTip-id-${question.id}`} />
-                      </>
-                    )}
+                <ModalSendQuestion
+                  modalIcon={<FiMessageCircle/>}
+                  modalSendAnswerFunction={handleSendAnswer}
+                  questionId={question.id}
+                  content={question.content}
+                >
+                  <button type="button"
+                    // remove the on click and set the function on the modal
+                    className="answer-button"
+                    data-tip data-for={`answerTip-id-${question.id}`}
+                  >
+                    <FiMessageCircle className="global-icon" />
+                  </button>
+                </ModalSendQuestion>
+                <Tooltip message="Responder pergunta" idTooltip={`answerTip-id-${question.id}`}/>
 
-                    <Modal modalTitle="Marcar pergunta como respondida" modalMessage="marcar esta pergunta como respondida"
-                      modalColor={"var(--yellow)"}
-                      modalSecondColor={"var(--black)"}
-                      modalIcon={<FiMessageSquare/>}
-                      modalActionFunction={handleCheckQuestionAsAnswered}
-                      questionId={question.id}
-                      modalImage={questionAnsweredExampleImg}
-                    >
-                      <button type="button"
-                        // remove the on click and set the function on the modal
-                        className="answer-button"
-                        data-tip data-for={`checkTip-id-${question.id}`}
-                      >
-                        <FiMessageSquare className="global-icon size-30" />
-                      </button>
-                    </Modal>
-                    <Tooltip message="Marcar pergunta como" message2="Respondida" idTooltip={`checkTip-id-${question.id}`}/>
-                  </>
-                ) }
                 <Modal modalTitle="Deletar pergunta" modalMessage="deletar esta pergunta"
                   modalColor={'var(--red)'} modalIcon={<FiTrash/>}
                   modalActionFunction={handleDeleteQuestion}

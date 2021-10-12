@@ -64,7 +64,7 @@ export function Room() {
         avatar: user.avatar
       },
       isHighlighted: false,
-      isAnswered: false
+      answer: ''
     };
 
     await database().ref(`rooms/${roomId}/questions`).push(question)
@@ -108,7 +108,6 @@ export function Room() {
             <textarea
               onChange={event => setNewQuestion(event.target.value)}
               value={newQuestion}
-              minLength={16}
               maxLength={400}
               placeholder={
                 `${!settings.canSendQuestion ? 'O Admnistrador desativou o envio de novas questões.'
@@ -151,38 +150,34 @@ export function Room() {
                   key={question.id}
                   content={question.content}
                   author={question.author}
-                  isAnswered={question.isAnswered}
+                  answer={question.answer}
                   isHighlighted={question.isHighlighted}
                 >
-                  { !question.isAnswered && (
-                    <>
-                    {/* question author can delete it questions */}
-                    {user?.id === question.author.id &&
-                      <Modal modalTitle="Deletar sua pergunta" modalMessage="deletar sua pergunta"
-                        modalColor={'var(--red)'} modalIcon={<FiXCircle/>}
-                        modalActionFunction={handleUserDeleteQuestion}
-                        questionId={question.id}
+                  {/* question author can delete it questions */}
+                  {user?.id === question.author.id &&
+                    <Modal modalTitle="Deletar sua pergunta" modalMessage="deletar sua pergunta"
+                      modalColor={'var(--red)'} modalIcon={<FiXCircle/>}
+                      modalActionFunction={handleUserDeleteQuestion}
+                      questionId={question.id}
+                    >
+                      <button type="button" aria-label="Deletar sua Questão"
+                        className="delete-button user-delete-button" 
                       >
-                        <button type="button" aria-label="Deletar sua Questão"
-                          className="delete-button user-delete-button" 
-                        >
-                          <FiXCircle className="global-icon" />
-                        </button>
-                      </Modal>
-                      }
-                    <div className={`like-button ${question.likeId ? 'liked' : ''}`}>
-                      {question.likeCount > 0 && <span>{question.likeCount}</span>}
-                      <button type="button"
-                        aria-label="Marcar como gostei"
-                        onClick={() => handleLikeQuestion(question.id, question.likeId)}
-                        data-tip data-for={`curtirTip-id-${question.id}`}
-                      >
-                        <FiThumbsUp className="global-icon"/>
+                        <FiXCircle className="global-icon" />
                       </button>
-                      <Tooltip message="Curtir pergunta" idTooltip={`curtirTip-id-${question.id}`}/>
-                    </div>
-                    </>
-                  )}
+                    </Modal>
+                  }
+                  <div className={`like-button ${question.likeId ? 'liked' : ''}`}>
+                    {question.likeCount > 0 && <span>{question.likeCount}</span>}
+                    <button type="button"
+                      aria-label="Marcar como gostei"
+                      onClick={() => handleLikeQuestion(question.id, question.likeId)}
+                      data-tip data-for={`curtirTip-id-${question.id}`}
+                    >
+                      <FiThumbsUp className="global-icon"/>
+                    </button>
+                    <Tooltip message="Curtir pergunta" idTooltip={`curtirTip-id-${question.id}`}/>
+                  </div>
                 </Question>
               )
             })}

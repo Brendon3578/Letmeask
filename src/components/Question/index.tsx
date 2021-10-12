@@ -11,7 +11,7 @@ type QuestionProps = {
     avatar: string;
   };
   children?: ReactNode;
-  isAnswered?: boolean;
+  answer?: string;
   isHighlighted?: boolean;
 
 }
@@ -19,7 +19,7 @@ type QuestionProps = {
 export function Question({
   content,
   author,
-  isAnswered = false,
+  answer = undefined,
   isHighlighted = false,
   children
 }: QuestionProps) {
@@ -27,11 +27,14 @@ export function Question({
     <div
       className={cx(
         'question',
-        { answered: isAnswered },
-        { highlighted: isHighlighted && !isAnswered },
+        { highlighted: isHighlighted },
+        { answered: answer }
       )}
     >
-      <p>{content}</p>
+      <p><span className='letter-emphasis'>Q:</span>{content}</p>
+      {answer &&
+        <p className="question-answer"> <span className='letter-emphasis'>A:</span>{answer}</p>
+      }
       <footer>
         <div className="user-info">
           <img src={author.avatar} alt={author.name} />

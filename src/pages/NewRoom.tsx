@@ -70,12 +70,11 @@ export function NewRoom() {
               value={newRoom}
             />
             <Button type="submit">
-
               Criar sala
             </Button>
           </form>
           <p>
-            Quer entrar em uma sala existente? <Link to="/">clique aqui</Link>
+            Quer entrar em uma sala existente? <Link to="/auth">clique aqui</Link>
           </p>
           <div className="line" />
           <p>
