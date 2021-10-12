@@ -76,7 +76,7 @@ O layout da aplicação está disponível no Figma:
   - :white_check_mark: Adição do React-Icons para icones dinâmicos
   - :white_check_mark: Animação de loading
   - :white_check_mark: Ilustrações para quando não há questões/não há salas criadas por você
-  - :white_large_square: Landing page para o projeto
+  - :white_check_mark: Landing page para o projeto
   - :white_large_square: Utilização de styled components 💅🏾 para estilizações mais dinâmicas
   - :white_large_square: Darkmode
 
@@ -86,6 +86,7 @@ O layout da aplicação está disponível no Figma:
   <summary><b>Back-end / Funcionalidades</b></summary>
   
   - :white_check_mark: Usuário deletar a sua própria pergunta
+  - :white_check_mark: Administrador poder responder as questões do Usuário pelo próprio Letmeask
   - :white_check_mark: Página de usuário para acessar as salas criadas por você
   - :white_check_mark: Página 404 quando a url não é reconhecida, ou quando a sala que está na url não existe
   - :white_check_mark: Opção de mudar o título da sala quando estiver na página de administrador
@@ -96,8 +97,8 @@ O layout da aplicação está disponível no Figma:
 <details>
   <summary><b>Database / Banco de dados</b></summary>
   
-  - :white_check_mark: Pequenos ajustes no DB
-  - :white_check_mark: Criação de uma nova tabela para ver as salas criadas pelo usuário, a vez de fazer todo o processo de iteração em todas as salas existentes no DB e verificar se o ID do criador da sala é o mesmo ID do usuário
+  - :white_check_mark: Utilização de Realtime Database do Firebase para trafego de informação em tempo real
+  - :white_check_mark: Debounce Functions feito pelo back-end para acontecer um pequeno delay quando houver alguma mudança no database
 
 </details>
 
