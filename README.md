@@ -88,9 +88,9 @@ O layout da aplicação está disponível no Figma:
   - :white_check_mark: Usuário deletar a sua própria pergunta
   - :white_check_mark: Administrador poder responder as questões do Usuário pelo próprio Letmeask
   - :white_check_mark: Página de usuário para acessar as salas criadas por você
-  - :white_check_mark: Página 404 quando a url não é reconhecida, ou quando a sala que está na url não existe
+  - :white_check_mark: Página 404
   - :white_check_mark: Opção de mudar o título da sala quando estiver na página de administrador
-  - :white_check_mark: Verificação se usuário é admin da página (se estiver na página de admin)
+  - :white_check_mark: Verificação se usuário é admin da página
 
 </details>
 
