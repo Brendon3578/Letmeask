@@ -54,7 +54,7 @@ Lembrando que será necessário criar uma conta no [Firebase](https://firebase.g
 
 ## 💻 Projeto
 
-O projeto **Letmeask** é um app elaborado para criadores de conteúdos poderem criar salas de Q&amp;A com o seu público e poderem tirar dúvidas, de uma forma muito organizada e democrática. Criado a partir do evento **Next Level Week 6** dentro da trirla *React*JS.
+O projeto **Letmeask** é um app elaborado para criadores de conteúdos poderem criar salas de Q&amp;A com o seu público e poderem tirar dúvidas, de uma forma muito organizada e democrática. Criado a partir do evento **Next Level Week 6** dentro da trilha *React*JS.
 
 - [Acesse o projeto](https://letmeask-aafe8.web.app/)
 
